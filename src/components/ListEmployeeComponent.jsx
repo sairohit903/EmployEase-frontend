@@ -14,7 +14,7 @@ const ListEmployeeComponent = () => {
 
     function getAllEmployees(){
         const fetchEmployees = async ()=>{
-            const response = await axios.get("http://localhost:9090/employees");
+            const response = await axios.get("https://employeeease-production.up.railway.app/employees");
             setEmployee(response.data)
         }
         fetchEmployees();
@@ -31,7 +31,7 @@ const ListEmployeeComponent = () => {
     function removeEmployee(id){
         console.log(id)
 
-        axios.delete(`http://localhost:9090/delete-employee/${id}`)
+        axios.delete(`https://employeeease-production.up.railway.app/delete-employee/${id}`)
         .then(()=>{
             getAllEmployees();
         })

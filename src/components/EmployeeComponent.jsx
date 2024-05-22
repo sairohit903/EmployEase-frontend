@@ -24,7 +24,7 @@ const EmployeeComponent = () => {
     const employee = {name, phoneNumber, email}
     if (validateForm()) {
       if(id){
-        axios.put(`http://localhost:9090/edit-employee/${id}`, employee)
+        axios.put(`https://employeeease-production.up.railway.app/edit-employee/${id}`, employee)
         .then((response)=>{
           console.log(response)
           navigate("/")
@@ -34,7 +34,7 @@ const EmployeeComponent = () => {
         })
       }else{
         try {
-        await axios.post("http://localhost:9090/add-employee", { name, phoneNumber, email });
+        await axios.post("https://employeeease-production.up.railway.app/add-employee", { name, phoneNumber, email });
         setName("");
         setphoneNumber("");
         setEmail("");
@@ -51,7 +51,7 @@ const EmployeeComponent = () => {
 //--------------FUNCTON TO GET A SPECIFIC EMPLOYEE ---------------
 
 useEffect(()=>{
-  axios.get(`http://localhost:9090/employees/${id}`)
+  axios.get(`https://employeeease-production.up.railway.app/employees/${id}`)
   .then(resposnse =>{
     setName(resposnse.data.name)
     setphoneNumber(resposnse.data.phoneNumber)
